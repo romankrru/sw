@@ -9,7 +9,9 @@ import axios from 'axios';
 import Nav from './components/Nav/Nav';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import Home from './components/Home/Home';
+import Main from './components/Main/Main';
 import Layout from './components/Layout/Layout';
+import Sidebar from './components/Sidebar/Sidebar';
 
 const PEOPLE_URL = 'https://swapi.co/api/people';
 
@@ -61,12 +63,12 @@ class App extends Component {
         <div className="App">
           <ProgressBar startProgress={this.state.startProgress} />
           <Layout>
-            <div className="column column-33">
+            <Sidebar>
               <Nav data={this.state.people} />
-            </div>
-            <div className="column column-67">
+            </Sidebar>
+            <Main>
               <Home />
-            </div>
+            </Main>
           </Layout>
         </div>
       </Router>

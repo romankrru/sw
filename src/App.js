@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,6 +9,7 @@ import axios from 'axios';
 import Nav from './components/Nav/Nav';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import Home from './components/Home/Home';
+import Layout from './components/Layout/Layout';
 
 const PEOPLE_URL = 'https://swapi.co/api/people';
 
@@ -60,16 +60,14 @@ class App extends Component {
       <Router>
         <div className="App">
           <ProgressBar startProgress={this.state.startProgress} />
-          <div className="container">
-            <div className="row">
-              <div className="column column-33">
-                <Nav data={this.state.people} />
-              </div>
-              <div className="column column-67">
-                <Home />
-              </div>
+          <Layout>
+            <div className="column column-33">
+              <Nav data={this.state.people} />
             </div>
-          </div>
+            <div className="column column-67">
+              <Home />
+            </div>
+          </Layout>
         </div>
       </Router>
     );
